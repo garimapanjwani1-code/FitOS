@@ -1,0 +1,291 @@
+/* ============================================
+   FitOS Design System
+   Apple HIG-inspired, Dark Mode First
+   ============================================ */
+
+:root {
+  /* Accent Color */
+  --accent: #0A84FF;
+  --accent-dim: rgba(10, 132, 255, 0.15);
+  --accent-hover: #409CFF;
+
+  /* Dark Mode Colors (Default) */
+  --bg-primary: #000000;
+  --bg-secondary: #1C1C1E;
+  --bg-tertiary: #2C2C2E;
+  --bg-elevated: #1C1C1E;
+  --bg-card: #1C1C1E;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #8E8E93;
+  --text-tertiary: #48484A;
+  --text-inverse: #000000;
+
+  --border: #38383A;
+  --separator: #38383A;
+
+  --success: #30D158;
+  --warning: #FFD60A;
+  --danger: #FF453A;
+  --info: #64D2FF;
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+
+  /* Typography */
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 28px;
+  --text-4xl: 34px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Layout */
+  --nav-height: 83px;
+  --status-bar: env(safe-area-inset-top, 44px);
+  --bottom-safe: env(safe-area-inset-bottom, 34px);
+  --page-padding: 16px;
+}
+
+/* Light Mode Override */
+[data-theme="light"] {
+  --bg-primary: #F2F2F7;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #E5E5EA;
+  --bg-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+
+  --text-primary: #000000;
+  --text-secondary: #6C6C70;
+  --text-tertiary: #AEAEB2;
+  --text-inverse: #FFFFFF;
+
+  --border: #D1D1D6;
+  --separator: #C6C6C8;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  line-height: 1.4;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.status-bar-spacer {
+  height: var(--status-bar);
+  min-height: 20px;
+  flex-shrink: 0;
+}
+
+#page-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--nav-height);
+}
+
+/* Scrollbar */
+#page-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   Typography Utilities
+   ============================================ */
+
+.title-large {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.3px;
+}
+
+.headline {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.subheadline {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.body {
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+}
+
+.caption {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* ============================================
+   Layout Utilities
+   ============================================ */
+
+.page {
+  padding: var(--page-padding);
+  padding-top: var(--space-lg);
+  min-height: 100%;
+}
+
+.page-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* ============================================
+   Animation
+   ============================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade { animation: fadeIn var(--transition-base) forwards; }
+.animate-slide-up { animation: slideUp var(--transition-base) forwards; }
+.animate-scale { animation: scaleIn var(--transition-fast) forwards; }
