@@ -21,14 +21,13 @@ export const DEFAULT_MEALS = [
       { name: '30g oats', cal: 117, protein: 4.0, carbs: 20.1, fat: 2.3, fiber: 3.0 },
       { name: '200ml toned milk', cal: 116, protein: 6.6, carbs: 9.6, fat: 6.0, fiber: 0 },
       { name: '1 scoop whey', cal: 120, protein: 24.0, carbs: 3.0, fat: 1.5, fiber: 0 },
-      { name: '10g chia seeds', cal: 49, protein: 1.7, carbs: 4.2, fat: 3.1, fiber: 3.4 },
-      { name: '10g mixed nuts', cal: 60, protein: 2.0, carbs: 2.0, fat: 5.2, fiber: 1.0 }
+      { name: '10g chia seeds', cal: 49, protein: 1.7, carbs: 4.2, fat: 3.1, fiber: 3.4 }
     ],
-    calories: 462,
-    protein: 38,
-    carbs: 39,
-    fat: 18,
-    fiber: 7
+    calories: 390,
+    protein: 35,
+    carbs: 36,
+    fat: 12,
+    fiber: 5
   },
   {
     id: 'chicken-lunch',
@@ -45,6 +44,21 @@ export const DEFAULT_MEALS = [
     carbs: 43,
     fat: 4,
     fiber: 6
+  },
+  {
+    id: 'choco-omelette-lunch',
+    name: 'Chocolate Omelette + Yogurt + Papaya',
+    slot: 'lunch',
+    ingredients: [
+      { name: 'Chocolate protein omelette', cal: 350, protein: 32.0, carbs: 40.0, fat: 8.0, fiber: 4.0 },
+      { name: 'Yogurt', cal: 60, protein: 5.0, carbs: 7.0, fat: 1.5, fiber: 0 },
+      { name: 'Papaya (~150g)', cal: 92, protein: 3.7, carbs: 18.0, fat: 0.6, fiber: 3.9 }
+    ],
+    calories: 502,
+    protein: 41,
+    carbs: 65,
+    fat: 10,
+    fiber: 8
   },
   {
     id: 'preworkout-shake',
