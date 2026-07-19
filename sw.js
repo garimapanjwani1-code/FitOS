@@ -2,7 +2,7 @@
  * FitOS Service Worker - Offline caching
  */
 
-const CACHE_NAME = 'fitos-v2';
+const CACHE_NAME = 'fitos-v3';
 const ASSETS = [
   './',
   './index.html',
