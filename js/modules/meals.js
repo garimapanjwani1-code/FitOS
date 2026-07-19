@@ -13,7 +13,16 @@ export class MealsPage {
   }
 
   // Get saved/edited meals (falls back to defaults)
+  // Uses a version key to detect when defaults change in code updates
   getSavedMeals() {
+    const MEAL_VERSION = '2'; // Bump this when DEFAULT_MEALS change
+    const savedVersion = localStorage.getItem('fitos-meals-version');
+    if (savedVersion !== MEAL_VERSION) {
+      // Defaults have changed — reset to new defaults
+      localStorage.removeItem('fitos-saved-meals');
+      localStorage.setItem('fitos-meals-version', MEAL_VERSION);
+      return DEFAULT_MEALS;
+    }
     const saved = localStorage.getItem('fitos-saved-meals');
     return saved ? JSON.parse(saved) : DEFAULT_MEALS;
   }
